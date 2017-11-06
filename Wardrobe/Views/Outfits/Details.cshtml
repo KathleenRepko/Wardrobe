@@ -1,34 +1,50 @@
 ﻿@model Wardrobe.Models.Outfit
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Outfit Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.OutfitName) Details</h2>
 
-<div>
-    <h4>Outfit</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.OutfitName)
-        </dt>
+@*Outfit Table was not well thought out. Only the first item is displaying - and it is appearing multiple times.*@
+<div class="container-fluid">
+    <div class="row details">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+            <p>Item One: @Html.DisplayFor(model => model.Item.ItemName, "Item One")</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <img src="@Url.Content(Model.Item.ItemPhoto)" height="300" max-width="100%" />
+        </div>
+    </div>
+    <div class="row details">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+            <p>Item Two: @Html.DisplayFor(model => model.Item.ItemName, "Item Two")</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <img src="@Url.Content(Model.Item.ItemPhoto)" height="300" max-width="100%" />
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.OutfitName)
-        </dd>
+    <div class="row details">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+            <p>Item Three: @Html.DisplayFor(model => model.Item.ItemName, "Item Three")</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <img src="@Url.Content(Model.Item.ItemPhoto)" height="300" max-width="100%" />
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Item.ItemName)
-        </dt>
+    <div class="row details">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+            <p>Item Four: @Html.DisplayFor(model => model.Item.ItemName, "Item Four")</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <img src="@Url.Content(Model.Item.ItemPhoto)" height="300" max-width="100%" />
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Item.ItemName)
-        </dd>
-
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OutfitID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <p>
+                @Html.ActionLink("Edit This Outfit", "Edit", new { id = Model.OutfitID }) |
+                @Html.ActionLink("Back to Outfit List", "Index")
+            </p>

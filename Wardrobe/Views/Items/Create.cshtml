@@ -10,7 +10,8 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
+    //User may add inventory to the wardrobe.
     <div class="form-horizontal">
         <h4>Item</h4>
         <hr />
@@ -23,6 +24,7 @@
             </div>
         </div>
 
+        @*URL for photo must be entered in the form.*@
         <div class="form-group">
             @Html.LabelFor(model => model.ItemPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

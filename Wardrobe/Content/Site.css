@@ -4,11 +4,14 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
+
+/*Navigation Bar*/
 .navvy{
     background-color: #4d0000;
     color: #ffffcc;
 }
-/*Jumbotron*/
+
+/*Jumbotron/Header*/
 .background {
     background-size: contain;
     background-repeat: no-repeat;
@@ -47,12 +50,19 @@
   background-color: #4d0000;
 }
 
+/*Items Index*/
 .caption {
     padding-left: 15px;
     text-align: center;
 }
+
+/*Items & Outfits Details*/
 .details{
     font-size: 24px;
 }
 
+.footer {
+    background-color: #4d0000;
+    color: #ffffcc;
+}
 
