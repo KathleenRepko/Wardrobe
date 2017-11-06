@@ -1,63 +1,30 @@
 ﻿@model IEnumerable<Wardrobe.Models.Item>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Items";
 }
 
-<h2>Index</h2>
+<h2>Wardrobe Items</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create a New Wardrobe Item", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemPhoto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Color)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Season)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Occasion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemPhoto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Season)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Occasion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ItemID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ItemID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ItemID })
-        </td>
-    </tr>
-}
 
-</table>
+@* A thumbnail representing each Wardrobe Item will appear on Items Index page *@
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h5>@Html.DisplayNameFor(model => model.ItemName):</h5>
+                    <h4>@Html.DisplayFor(modelItem => item.ItemName)</h4>
+                    <h5>@Html.DisplayNameFor(model => model.Category.CategoryName):</h5>
+                    <h4>@Html.DisplayFor(modelItem => item.Category.CategoryName)</h4> 
+                    <p align="center">@Html.ActionLink("Have a Look", "Details", new { id = item.ItemID }, new { @class = "btn btn-primary", role = "button" })</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

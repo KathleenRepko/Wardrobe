@@ -11,11 +11,14 @@ namespace Wardrobe.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Outfit
     {
         public int OutfitID { get; set; }
+        [Display(Name = "Outfit Name")]
         public string OutfitName { get; set; }
+        [Display(Name = "Item Name")]
         public int ItemID { get; set; }
     
         public virtual Item Item { get; set; }
